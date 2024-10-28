@@ -44,10 +44,10 @@ echo "CLONING BASIC MUNCH RESOURCES"
 echo "========================================================================"
 
 #1. Device Tree
-git clone https://github.com/DeadlyShroud/device_xiaomi_munch.git --depth=1 -b fourteen device/xiaomi/munch
+git clone https://github.com/Killer2801/android_device_xiaomi_munch.git --depth=1 -b fourteen device/xiaomi/munch
 
 #2. Common Device Tree
-git clone https://github.com/NewbieNoob1/device_xiaomi_sm8250-common.git --depth=1 -b fourteen device/xiaomi/sm8250-common
+git clone https://github.com/Killer2801/android_device_xiaomi_sm8250-common.git --depth=1 -b fourteen device/xiaomi/sm8250-common
 
 #3. Vendor Tree
 git clone https://gitea.com/deadlyshroud/vendor_xiaomi_munch.git --depth=1 -b fourteen vendor/xiaomi/munch
@@ -79,7 +79,7 @@ git clone https://github.com/hdzungx/android_hardware_qcom-caf_sm8250_display --
 git clone https://gitea.com/hdzungx/android_vendor_xiaomi_miuicamera.git --depth=1 -b uqpr3 vendor/xiaomi/miuicamera
 
 #4. Viper4AndroidFX
-git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git --depth=1 -b v4a packages/apps/ViPER4AndroidFX
+#git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git --depth=1 -b v4a packages/apps/ViPER4AndroidFX
 
 #5. KProfiles 
 rm -rf packages/apps/KProfiles
@@ -116,4 +116,6 @@ echo "BUILD STARTING"
 echo "========================================================================"
 
 source build/envsetup.sh
-brunch munch
+riseup munch userdebug
+gk -s
+rise b
