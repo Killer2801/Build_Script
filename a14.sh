@@ -115,7 +115,7 @@ echo "========================================================================"
 echo "BUILD STARTING"
 echo "========================================================================"
 
-source build/envsetup.sh
+. build/envsetup.sh
 riseup munch userdebug
 gk -s
 rise b
