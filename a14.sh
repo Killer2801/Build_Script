@@ -21,7 +21,7 @@ echo "========================================================================"
 echo "INITIALIZING ROM REPOSITORY"
 echo "========================================================================"
 
-repo init -u https://github.com/ProjectMatrixx/android.git -b 14.0 --git-lfs
+repo init -u https://github.com/RisingTechOSS/android -b fourteen --git-lfs
 
 echo "========================================================================"
 echo "ROM REPOSITORY INITIALIZED SUCCESSFULLY"
