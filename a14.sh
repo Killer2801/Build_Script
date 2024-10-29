@@ -97,6 +97,15 @@ echo "========================================================================"
 echo "========================================================================"
 echo "MODIFICATIONS STARTED"
 echo "========================================================================"
+#1. Neutron Clang
+cd prebuilts/clang/host/linux-x86
+mkdir clang-neutron
+cd clang-neutron
+curl -LO "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman"
+chmod +x antman
+./antman -S=05012024
+./antman --patch=glibc
+cd ../../../../..
 
 #2. Pocket Mode
 sed -i 's/android:minSdkVersion="19"/android:minSdkVersion="21"/' prebuilts/sdk/current/androidx/m2repository/androidx/preference/preference/1.3.0-alpha01/manifest/AndroidManifest.xml
