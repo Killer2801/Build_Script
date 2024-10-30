@@ -44,10 +44,10 @@ echo "CLONING BASIC MUNCH RESOURCES"
 echo "========================================================================"
 
 #1. Device Tree
-git clone https://github.com/Killer2801/android_device_xiaomi_munch.git --depth=1 -b fourteen device/xiaomi/munch
+git clone https://github.com/killer2801/device_xiaomi_munch.git --depth=1 -b fourteen device/xiaomi/munch
 
 #2. Common Device Tree
-git clone https://github.com/Killer2801/android_device_xiaomi_sm8250-common.git --depth=1 -b fourteen device/xiaomi/sm8250-common
+git clone https://github.com/killer2801/device_xiaomi_sm8250-common.git --depth=1 -b fourteen device/xiaomi/sm8250-common
 
 #3. Vendor Tree
 git clone https://gitea.com/deadlyshroud/vendor_xiaomi_munch.git --depth=1 -b fourteen vendor/xiaomi/munch
@@ -79,7 +79,7 @@ git clone https://github.com/hdzungx/android_hardware_qcom-caf_sm8250_display --
 git clone https://gitea.com/hdzungx/android_vendor_xiaomi_miuicamera.git --depth=1 -b uqpr3 vendor/xiaomi/miuicamera
 
 #4. Viper4AndroidFX
-#git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git --depth=1 -b v4a packages/apps/ViPER4AndroidFX
+git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git --depth=1 -b v4a packages/apps/ViPER4AndroidFX
 
 #5. KProfiles 
 rm -rf packages/apps/KProfiles
@@ -97,15 +97,6 @@ echo "========================================================================"
 echo "========================================================================"
 echo "MODIFICATIONS STARTED"
 echo "========================================================================"
-#1. Neutron Clang
-cd prebuilts/clang/host/linux-x86
-mkdir clang-neutron
-cd clang-neutron
-curl -LO "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman"
-chmod +x antman
-./antman -S=05012024
-./antman --patch=glibc
-cd ../../../../..
 
 #2. Pocket Mode
 sed -i 's/android:minSdkVersion="19"/android:minSdkVersion="21"/' prebuilts/sdk/current/androidx/m2repository/androidx/preference/preference/1.3.0-alpha01/manifest/AndroidManifest.xml
@@ -114,6 +105,9 @@ sed -i 's/android:minSdkVersion="19"/android:minSdkVersion="21"/' prebuilts/sdk/
 cd frameworks/native
 git fetch https://github.com/VoidUI-Tiramisu/frameworks_native refs/heads/aosp-13 && git cherry-pick d3b4026058e9d44759860c0b69d35de3f801c4e1
 cd ../..
+
+#4. Neutron clang
+git clone https://gitlab.com/clangsantoni/neutron-clang.git --depth=1 -b 05012024 prebuilts/clang/host/linux-x86/clang-neutron
 
 echo "========================================================================"
 echo "MODIFICATIONS DONE SUCCESSFULLY"
@@ -124,7 +118,7 @@ echo "========================================================================"
 echo "BUILD STARTING"
 echo "========================================================================"
 
-. build/envsetup.sh
+source build/envsetup.sh
 riseup munch userdebug
 gk -s
 rise b
