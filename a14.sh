@@ -44,10 +44,10 @@ echo "CLONING BASIC MUNCH RESOURCES"
 echo "========================================================================"
 
 #1. Device Tree
-git clone https://github.com/killer2801/device_xiaomi_munch.git --depth=1 -b fourteen device/xiaomi/munch
+git clone https://github.com/Killer2801/android_device_xiaomi_munch.git --depth=1 -b fourteen device/xiaomi/munch
 
 #2. Common Device Tree
-git clone https://github.com/killer2801/device_xiaomi_sm8250-common.git --depth=1 -b fourteen device/xiaomi/sm8250-common
+git clone https://github.com/Killer2801/android_device_xiaomi_sm8250-common.git --depth=1 -b fourteen device/xiaomi/sm8250-common
 
 #3. Vendor Tree
 git clone https://gitea.com/deadlyshroud/vendor_xiaomi_munch.git --depth=1 -b fourteen vendor/xiaomi/munch
