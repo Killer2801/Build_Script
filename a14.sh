@@ -101,7 +101,7 @@ mkdir clang-neutron
 cd clang-neutron
 curl -LO "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman"
 chmod +x antman
-./antman -S=latest
+./antman -S=05012024
 ./antman --patch=glibc
 cd ../../../../..
 
