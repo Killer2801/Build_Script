@@ -95,6 +95,16 @@ echo "========================================================================"
 echo "MODIFICATIONS STARTED"
 echo "========================================================================"
 
+#1. Neutron Clang
+cd prebuilts/clang/host/linux-x86
+mkdir clang-neutron
+cd clang-neutron
+curl -LO "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman"
+chmod +x antman
+./antman -S=latest
+./antman --patch=glibc
+cd ../../../../..
+
 #2. Pocket Mode
 sed -i 's/android:minSdkVersion="19"/android:minSdkVersion="21"/' prebuilts/sdk/current/androidx/m2repository/androidx/preference/preference/1.3.0-alpha01/manifest/AndroidManifest.xml
 
@@ -102,9 +112,6 @@ sed -i 's/android:minSdkVersion="19"/android:minSdkVersion="21"/' prebuilts/sdk/
 cd frameworks/native
 git fetch https://github.com/VoidUI-Tiramisu/frameworks_native refs/heads/aosp-13 && git cherry-pick d3b4026058e9d44759860c0b69d35de3f801c4e1
 cd ../..
-
-#4. Neutron clang
-git clone https://gitlab.com/clangsantoni/neutron-clang.git --depth=1 -b 05012024 prebuilts/clang/host/linux-x86/clang-neutron
 
 echo "========================================================================"
 echo "MODIFICATIONS DONE SUCCESSFULLY"
